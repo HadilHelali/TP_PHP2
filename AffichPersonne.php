@@ -1,7 +1,14 @@
 <?php
     $pageTitle = 'Affichage';
 include_once 'fragment/header.php';
+$Personne = [
+    'fatma' => 'laribi',
+    'ahmed' => 'mahfoudhi',
+    'salem' => 'hamdani'
+];
 ?>
+<br/>
+<br/>
 <div class="container">
 <table class="table">
     <thead>
@@ -9,37 +16,27 @@ include_once 'fragment/header.php';
         <th scope="col"> </th>
         <th scope="col">First Name</th>
         <th scope="col">Last Name</th>
+        <th scope="col"></th>
+        <th scope="col"><a href="AjoutPersonne.php"><i class="fa fa-plus-square"></i></a></th>
+
     </tr>
     </thead>
     <tbody>
-    <tr>
-        <th scope="row">1</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-    </tr>
-    <tr>
-        <th scope="row">2</th>
-        <td>Larry</td>
-        <td>the Bird</td>
-    </tr>
+    <?php
+    foreach($Personne as $firstName => $lastName) { ?>
+        <tr>
+            <td> </td>
+            <td><?= $firstName ?></td>
+            <td><?= $lastName ?></td>
+            <td><a href="ModifPersonne.php"><i class="fa fa-edit" ></i></a></td>
+            <td><a href="SuppPersonne.php"><i class="fa fa-trash" ></i></a></td>
+        </tr>
+        <?php
+    }
+    ?>
     </tbody>
 </table>
 </div>
-<div class="container">
-    <div class="row">
-        <div class="col-sm">
-            <a href="AjoutPersonne.php" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Ajouter une personne</a>
-        </div>
-        <div class="col-sm">
-            <a href="ModifPersonne.php" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Modifier une personne</a>
-        </div>
-        <div class="col-sm">
-            <a href="SuppPersonne.php" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Supprimer une personne</a>
-
-        </div>
-    </div>
-</div>
-
 <br/>
 
 </body>
